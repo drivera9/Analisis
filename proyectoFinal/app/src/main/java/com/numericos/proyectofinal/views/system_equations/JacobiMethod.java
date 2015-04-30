@@ -34,15 +34,19 @@ public class JacobiMethod extends Activity {
         final String ValoresIniciales = parametros.getString("ValoresIniciales");
         final String Lambda = parametros.getString("Lambda");
 
-        final EditText matrizA = (EditText) findViewById(R.id.matrix_editText);
+        final EditText matrizA = (EditText) findViewById(R.id.gaussianMatrix_editText);
         final EditText vectorB = (EditText) findViewById(R.id.indep_terms_editText);
-        final EditText iteraciones = (EditText) findViewById(R.id.iteraciones);
+        final EditText iteraciones = (EditText) findViewById(R.id.iteraciones_editText);
         final EditText tolerancia = (EditText) findViewById(R.id.tolerance_editText);
         final EditText valoresIniciales = (EditText) findViewById(R.id.valores_iniciales);
         final EditText lambda = (EditText) findViewById(R.id.lambda);
 
         matrizA.setText(MatrizA);
         vectorB.setText(VectorB);
+        iteraciones.setText(Iteraciones);
+        tolerancia.setText(Tolerancia);
+        valoresIniciales.setText(ValoresIniciales);
+        lambda.setText(Lambda);
 
         execute_button = (Button) findViewById(R.id.gaussian_button);
 
@@ -50,30 +54,30 @@ public class JacobiMethod extends Activity {
             @Override
             public void onClick(View v) {
 
-                matrix_editText = (EditText) findViewById(R.id.gaussianMatrix_editText);
-                String mtx = matrix_editText.getText().toString();
 
-                indepTerms_editText = (EditText) findViewById(R.id.indep_terms_editText);
-                String indepTerms = indepTerms_editText.getText().toString();
+                String mtx = matrizA.getText().toString();
 
-                tolerance_editText = (EditText) findViewById(R.id.editText);
-                double tolerance = Double.parseDouble(tolerance_editText.getText().toString());
 
-                iterations_editText = (EditText) findViewById(R.id.editText2);
-                int iterations = Integer.parseInt(iterations_editText.getText().toString());
+                String indepTerms = vectorB.getText().toString();
 
-                initial_values_editText = (EditText) findViewById(R.id.editText3);
-                String initialValues = initial_values_editText.getText().toString();
 
-                lambda_editText = (EditText) findViewById(R.id.editText4);
-                double lambda = Double.parseDouble(lambda_editText.getText().toString());
+                double tolerance = Double.parseDouble(tolerancia.getText().toString());
+
+
+                int iterations = Integer.parseInt(iteraciones.getText().toString());
+
+
+                String initialValues = valoresIniciales.getText().toString();
+
+
+                double lambda1 = Double.parseDouble(lambda.getText().toString());
 
                 SystemsOfEquations systemOfEquations = new SystemsOfEquations();
                 double [][] matrix = systemOfEquations.textToMatrix(mtx);
                 double [] vector = systemOfEquations.textToVector(indepTerms);
                 double [] initialVal = systemOfEquations.textToVector(initialValues);
 
-                systemOfEquations.Jacobi(matrix, vector, tolerance, iterations, initialVal, lambda);
+                systemOfEquations.Jacobi(matrix, vector, tolerance, iterations, initialVal, lambda1);
                 String resultado = systemOfEquations.printTabla(systemOfEquations.getTabla());
                 Log.d("ass", resultado);
 

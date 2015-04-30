@@ -112,7 +112,14 @@ public class Fragment_System_Equation extends Activity {
                         startActivity(ii);
                         break;
                     case 5:
+                        parametros2.putString("MatrizA", MatrizA);
+                        parametros2.putString("VectorB", VectorB);
+                        parametros2.putString("Tolerancia", Tolerancia);
+                        parametros2.putString("Iteraciones", Iteraciones);
+                        parametros2.putString("ValoresIniciales", ValoresIniciales);
+                        parametros2.putString("Lambda", Lambda);
                         ii = new Intent(getApplicationContext(), SeidelMethod.class);
+                        ii.putExtras(parametros2);
                         startActivity(ii);
                         break;
                 }

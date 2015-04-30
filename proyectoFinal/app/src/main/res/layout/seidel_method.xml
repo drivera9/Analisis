@@ -65,7 +65,7 @@
         android:layout_height="wrap_content"
         android:inputType="numberSigned"
         android:ems="10"
-        android:id="@+id/editText" />
+        android:id="@+id/tolerance_editText" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -79,7 +79,7 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/editText2" />
+        android:id="@+id/iteraciones_editText" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -93,7 +93,7 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/editText3" />
+        android:id="@+id/valores_iniciales" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -105,7 +105,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText4" />
+        android:id="@+id/lambda" />
 
     <Button
         android:layout_width="wrap_content"
