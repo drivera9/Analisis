@@ -10,6 +10,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.numericos.proyectofinal.R;
+import com.numericos.proyectofinal.views.single_variable.IncrementalSearchMethod;
 import com.numericos.proyectofinal.views.util.ListViewAdapter;
 
 /**
@@ -50,11 +51,20 @@ public class Fragment_System_Equation extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_system_equation);
 
+        final Bundle parametros = this.getIntent().getExtras();
+
+        final String MatrizA = parametros.getString("matrizA");
+        final String VectorB = parametros.getString("vectorB");
+        final String Tolerancia = parametros.getString("tolerancia");
+        final String Iteraciones = parametros.getString("iteraciones");
+        final String ValoresIniciales = parametros.getString("valoresIniciales");
+        final String Lambda = parametros.getString("lambda");
+
 
         final ListView lista = (ListView) findViewById(R.id.listView1);
         adapter = new ListViewAdapter(getApplicationContext(), titulo, imagenes, subtitulo);
         lista.setAdapter(adapter);
-
+        final Bundle parametros2 = new Bundle();
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView adapterView, View view, int position, long id) {
@@ -63,7 +73,14 @@ public class Fragment_System_Equation extends Activity {
                 Intent ii = null;
                 switch (position) {
                     case 0:
+                        parametros2.putString("MatrizA", MatrizA);
+                        parametros2.putString("VectorB", VectorB);
+                        parametros2.putString("Iteraciones", Iteraciones);
+                        parametros2.putString("Tolerancia", Tolerancia);
+                        parametros2.putString("ValoresIniciales", ValoresIniciales);
+                        parametros2.putString("Lambda", Lambda);
                         ii = new Intent(getApplicationContext(), SimpleGaussianMethod.class);
+                        ii.putExtras(parametros2);
                         startActivity(ii);
                         break;
                     case 1:
