@@ -75,20 +75,22 @@ public class Fragment_System_Equation extends Activity {
                     case 0:
                         parametros2.putString("MatrizA", MatrizA);
                         parametros2.putString("VectorB", VectorB);
-                        parametros2.putString("Iteraciones", Iteraciones);
-                        parametros2.putString("Tolerancia", Tolerancia);
-                        parametros2.putString("ValoresIniciales", ValoresIniciales);
-                        parametros2.putString("Lambda", Lambda);
                         ii = new Intent(getApplicationContext(), SimpleGaussianMethod.class);
                         ii.putExtras(parametros2);
                         startActivity(ii);
                         break;
                     case 1:
+                        parametros2.putString("MatrizA", MatrizA);
+                        parametros2.putString("VectorB", VectorB);
                         ii = new Intent(getApplicationContext(), PivoteoParcialMethod.class);
+                        ii.putExtras(parametros2);
                         startActivity(ii);
                         break;
                     case 2:
+                        parametros2.putString("MatrizA", MatrizA);
+                        parametros2.putString("VectorB", VectorB);
                         ii = new Intent(getApplicationContext(), PivoteoTotalMethod.class);
+                        ii.putExtras(parametros2);
                         startActivity(ii);
                         break;
                     case 3:

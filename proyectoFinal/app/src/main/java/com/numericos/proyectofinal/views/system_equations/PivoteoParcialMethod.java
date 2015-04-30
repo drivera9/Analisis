@@ -26,17 +26,25 @@ public class PivoteoParcialMethod extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.eg_pivoteo_parcial_method);
 
+        Bundle parametros = this.getIntent().getExtras();
+        final String MatrizA = parametros.getString("MatrizA");
+        final String VectorB = parametros.getString("VectorB");
+
+        final EditText matrizA = (EditText) findViewById(R.id.matrix_editText);
+        final EditText vectorB = (EditText) findViewById(R.id.indep_terms_editText);
+
+        matrizA.setText(MatrizA);
+        vectorB.setText(VectorB);
+
         execute_button = (Button) findViewById(R.id.pivoteo_total_button);
 
         execute_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                matrix_editText = (EditText) findViewById(R.id.matrix_editText);
-                String mtx = matrix_editText.getText().toString();
+                String mtx = matrizA.getText().toString();
 
-                indepTerms_editText = (EditText) findViewById(R.id.indep_terms_editText);
-                String indepTerms = indepTerms_editText.getText().toString();
+                String indepTerms = vectorB.getText().toString();
 
                 SystemsOfEquations systemOfEquations = new SystemsOfEquations();
                 double [][] matrix = systemOfEquations.textToMatrix(mtx);

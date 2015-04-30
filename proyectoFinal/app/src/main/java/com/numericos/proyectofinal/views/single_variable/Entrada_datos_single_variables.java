@@ -77,6 +77,7 @@ public class Entrada_datos_single_variables extends Activity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+
             return true;
         }
 
