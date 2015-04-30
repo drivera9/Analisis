@@ -10,14 +10,11 @@ import android.widget.ListView;
 import android.widget.AdapterView;
 import android.widget.Toast;
 
+import com.numericos.proyectofinal.views.system_equations.Entrada_datos_sistemas_ecuaciones;
 import com.numericos.proyectofinal.R;
 import com.numericos.proyectofinal.views.interpolation.Fragment_Interpolation;
 import com.numericos.proyectofinal.views.numerical_integration.Fragment_Numerical_Integration;
-import com.numericos.proyectofinal.views.single_variable.BisectionMethod;
 import com.numericos.proyectofinal.views.single_variable.Entrada_datos_single_variables;
-import com.numericos.proyectofinal.views.single_variable.FalsePositionMethod;
-import com.numericos.proyectofinal.views.single_variable.Fragment_Single_Variable;
-import com.numericos.proyectofinal.views.system_equations.Fragment_System_Equation;
 import com.numericos.proyectofinal.views.util.ListViewAdapter;
 
 
@@ -63,7 +60,7 @@ public class Fragment_Numerical_Methods extends Fragment {
                         startActivity(ii);
                         break;
                     case 1:
-                        ii = new Intent(getActivity(), Fragment_System_Equation.class);
+                        ii = new Intent(getActivity(), Entrada_datos_sistemas_ecuaciones.class);
                         startActivity(ii);
                         break;
                     case 2:

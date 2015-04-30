@@ -1,0 +1,123 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.numericos.proyectofinal.views.system_equations.Entrada_datos_sistemas_ecuaciones">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Matriz A"
+        android:id="@+id/text_matriz_a"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:id="@+id/matriz_a"
+        android:layout_below="@+id/text_matriz_a"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vector B"
+        android:id="@+id/text_vector_b"
+        android:layout_above="@+id/matriz_a"
+        android:layout_toRightOf="@+id/matriz_a"
+        android:layout_toEndOf="@+id/matriz_a"
+        android:layout_marginLeft="33dp"
+        android:layout_marginStart="33dp" />
+
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:id="@+id/vector_b"
+        android:layout_below="@+id/text_vector_b"
+        android:layout_alignLeft="@+id/text_vector_b"
+        android:layout_alignStart="@+id/text_vector_b" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tolerancia"
+        android:id="@+id/text_tolerancia"
+        android:layout_below="@+id/matriz_a"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="38dp" />
+
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:id="@+id/tolerancia"
+        android:layout_below="@+id/text_tolerancia"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Iteraciones"
+        android:id="@+id/text_iteraciones"
+        android:layout_alignTop="@+id/text_tolerancia"
+        android:layout_alignLeft="@+id/vector_b"
+        android:layout_alignStart="@+id/vector_b" />
+
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:id="@+id/iteraciones"
+        android:layout_alignBottom="@+id/tolerancia"
+        android:layout_alignLeft="@+id/text_iteraciones"
+        android:layout_alignStart="@+id/text_iteraciones" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Valores Iniciales"
+        android:id="@+id/text_valores_ini"
+        android:layout_marginTop="34dp"
+        android:layout_below="@+id/tolerancia"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:id="@+id/valores_iniciales"
+        android:layout_below="@+id/text_valores_ini"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lambda"
+        android:id="@+id/text_lambda"
+        android:layout_above="@+id/valores_iniciales"
+        android:layout_alignLeft="@+id/iteraciones"
+        android:layout_alignStart="@+id/iteraciones" />
+
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:id="@+id/lambda"
+        android:layout_alignBottom="@+id/valores_iniciales"
+        android:layout_alignLeft="@+id/text_lambda"
+        android:layout_alignStart="@+id/text_lambda" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Continue"
+        android:id="@+id/boton_continue"
+        android:layout_marginTop="57dp"
+        android:layout_below="@+id/valores_iniciales"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

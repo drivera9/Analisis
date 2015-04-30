@@ -136,6 +136,10 @@
             android:name=".HelpIncremental"
             android:label="@string/title_activity_help_incremental" >
         </activity>
+        <activity
+            android:name=".views.system_equations.Entrada_datos_sistemas_ecuaciones"
+            android:label="@string/title_activity_entrada_datos_sistemas_ecuaciones" >
+        </activity>
     </application>
 
 </manifest>
