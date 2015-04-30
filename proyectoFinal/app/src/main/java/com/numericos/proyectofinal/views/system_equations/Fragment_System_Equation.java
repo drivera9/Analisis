@@ -94,11 +94,21 @@ public class Fragment_System_Equation extends Activity {
                         startActivity(ii);
                         break;
                     case 3:
+                        parametros2.putString("MatrizA", MatrizA);
+                        parametros2.putString("VectorB", VectorB);
                         ii = new Intent(getApplicationContext(), PivoteoEscalonadoMethod.class);
+                        ii.putExtras(parametros2);
                         startActivity(ii);
                         break;
                     case 4:
+                        parametros2.putString("MatrizA", MatrizA);
+                        parametros2.putString("VectorB", VectorB);
+                        parametros2.putString("Tolerancia", Tolerancia);
+                        parametros2.putString("Iteraciones", Iteraciones);
+                        parametros2.putString("ValoresIniciales", ValoresIniciales);
+                        parametros2.putString("Lambda", Lambda);
                         ii = new Intent(getApplicationContext(), JacobiMethod.class);
+                        ii.putExtras(parametros2);
                         startActivity(ii);
                         break;
                     case 5:

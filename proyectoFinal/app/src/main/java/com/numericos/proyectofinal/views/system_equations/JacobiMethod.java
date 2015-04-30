@@ -26,6 +26,24 @@ public class JacobiMethod extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.jacobi_method);
 
+        Bundle parametros = this.getIntent().getExtras();
+        final String MatrizA = parametros.getString("MatrizA");
+        final String VectorB = parametros.getString("VectorB");
+        final String Iteraciones = parametros.getString("Iteraciones");
+        final String Tolerancia = parametros.getString("Tolerancia");
+        final String ValoresIniciales = parametros.getString("ValoresIniciales");
+        final String Lambda = parametros.getString("Lambda");
+
+        final EditText matrizA = (EditText) findViewById(R.id.matrix_editText);
+        final EditText vectorB = (EditText) findViewById(R.id.indep_terms_editText);
+        final EditText iteraciones = (EditText) findViewById(R.id.iteraciones);
+        final EditText tolerancia = (EditText) findViewById(R.id.tolerance_editText);
+        final EditText valoresIniciales = (EditText) findViewById(R.id.valores_iniciales);
+        final EditText lambda = (EditText) findViewById(R.id.lambda);
+
+        matrizA.setText(MatrizA);
+        vectorB.setText(VectorB);
+
         execute_button = (Button) findViewById(R.id.gaussian_button);
 
         execute_button.setOnClickListener(new View.OnClickListener() {
