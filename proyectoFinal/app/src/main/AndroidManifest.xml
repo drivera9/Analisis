@@ -160,6 +160,22 @@
             android:name=".views.single_variable.HelpSecante"
             android:label="@string/title_activity_help_secante" >
         </activity>
+        <activity
+            android:name=".views.single_variable.HelpMultipleRoots"
+            android:label="@string/title_activity_help_multiple_roots" >
+        </activity>
+        <activity
+            android:name=".views.system_equations.HelpEliminacionSimple"
+            android:label="@string/title_activity_help_eliminacion_simple" >
+        </activity>
+        <activity
+            android:name=".views.system_equations.HelpPivoteoParcial"
+            android:label="@string/title_activity_help_pivoteo_parcial" >
+        </activity>
+        <activity
+            android:name=".views.system_equations.HelpPivoteoTotal"
+            android:label="@string/title_activity_help_pivoteo_total" >
+        </activity>
     </application>
 
 </manifest>
