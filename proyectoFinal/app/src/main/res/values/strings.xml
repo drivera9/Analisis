@@ -49,5 +49,9 @@
     <string name="title_activity_help_eliminacion_simple">HelpEliminacionSimple</string>
     <string name="title_activity_help_pivoteo_parcial">HelpPivoteoParcial</string>
     <string name="title_activity_help_pivoteo_total">HelpPivoteoTotal</string>
+    <string name="title_activity_help_pivoteo_escalonado">HelpPivoteoEscalonado</string>
+    <string name="title_activity_help_jacobi">HelpJacobi</string>
+    <string name="title_activity_help_seidel">HelpSeidel</string>
+    <string name="title_activity_help_busquedas">HelpBusquedas</string>
 
 </resources>

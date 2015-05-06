@@ -3,6 +3,7 @@ package com.numericos.proyectofinal.views.system_equations;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.EditText;
 
 import com.numericos.proyectofinal.R;
 import com.numericos.proyectofinal.logic.SystemsOfEquations;
+import com.numericos.proyectofinal.views.single_variable.HelpMultipleRoots;
 
 /**
  * Created by JU on 10/21/2014.
@@ -67,5 +69,10 @@ public class PivoteoTotalMethod extends Activity {
                 builder.show();
             }
         });
+    }
+
+    public void helpPivoteoTotal(View v){
+        Intent help = new Intent(getApplicationContext(),HelpPivoteoTotal.class);
+        startActivity(help);
     }
 }

@@ -176,6 +176,22 @@
             android:name=".views.system_equations.HelpPivoteoTotal"
             android:label="@string/title_activity_help_pivoteo_total" >
         </activity>
+        <activity
+            android:name=".views.system_equations.HelpPivoteoEscalonado"
+            android:label="@string/title_activity_help_pivoteo_escalonado" >
+        </activity>
+        <activity
+            android:name=".views.system_equations.HelpJacobi"
+            android:label="@string/title_activity_help_jacobi" >
+        </activity>
+        <activity
+            android:name=".views.system_equations.HelpSeidel"
+            android:label="@string/title_activity_help_seidel" >
+        </activity>
+        <activity
+            android:name=".views.single_variable.HelpBusquedas"
+            android:label="@string/title_activity_help_busquedas" >
+        </activity>
     </application>
 
 </manifest>

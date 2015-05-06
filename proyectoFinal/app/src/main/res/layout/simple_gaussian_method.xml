@@ -56,6 +56,13 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Help"
+        android:id="@+id/button4"
+        android:onClick="helpSimpleEliminacion"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Execute"
         android:id="@+id/gaussian_button"
         android:layout_marginBottom="162dp"
