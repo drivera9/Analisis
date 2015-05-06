@@ -187,6 +187,15 @@
                     android:layout_above="@+id/result_editText"
                     android:layout_centerHorizontal="true" />
 
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Help"
+                    android:id="@+id/button_help"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="0.07"
+                    android:onClick="helpFalse"/>
+
                 <EditText
                     android:layout_width="273dp"
                     android:layout_height="wrap_content"

@@ -117,5 +117,15 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Help"
+        android:id="@+id/button_help"
+        android:layout_alignTop="@+id/Resultado_bisection"
+        android:layout_toRightOf="@+id/tabla_button"
+        android:layout_toEndOf="@+id/tabla_button"
+        android:onClick="helpBiseccion"/>
+
 
 </RelativeLayout>

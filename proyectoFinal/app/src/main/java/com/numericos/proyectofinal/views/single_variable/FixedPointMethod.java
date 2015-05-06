@@ -1,6 +1,7 @@
 package com.numericos.proyectofinal.views.single_variable;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.numericos.proyectofinal.R;
+import com.numericos.proyectofinal.Tabla;
 import com.numericos.proyectofinal.logic.FixedPoint;
 import com.numericos.proyectofinal.views.util.CustomKeyboard;
 
@@ -110,6 +112,11 @@ public class FixedPointMethod extends Activity {
             }
         });
 
+    }
+
+    public void helpFixed(View v){
+        Intent help = new Intent(getApplicationContext(),HelpFixedPoint.class);
+        startActivity(help);
     }
 
     @Override public void onBackPressed() {

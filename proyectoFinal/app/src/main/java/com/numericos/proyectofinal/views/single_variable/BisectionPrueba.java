@@ -137,6 +137,11 @@ public class BisectionPrueba extends Activity {
 
     }
 
+    public void helpBiseccion(View v){
+        Intent help = new Intent(getApplicationContext(),HelpBiseccion.class);
+        startActivity(help);
+    }
+
     public void ejecutar(){
     Bisection bisection;
         Bundle parametros = this.getIntent().getExtras();

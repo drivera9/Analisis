@@ -1,6 +1,7 @@
 package com.numericos.proyectofinal.views.single_variable;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.numericos.proyectofinal.R;
+import com.numericos.proyectofinal.Tabla;
 import com.numericos.proyectofinal.logic.Bisection;
 import com.numericos.proyectofinal.views.util.CustomKeyboard;
 
@@ -118,6 +120,11 @@ public class FalsePositionMethod extends Activity {
             }
         });
 
+    }
+
+    public void helpFalse(View v){
+        Intent help = new Intent(getApplicationContext(),HelpFalsePosition.class);
+        startActivity(help);
     }
 
     @Override public void onBackPressed() {

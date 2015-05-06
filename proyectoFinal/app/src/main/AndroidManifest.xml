@@ -140,6 +140,26 @@
             android:name=".views.system_equations.Entrada_datos_sistemas_ecuaciones"
             android:label="@string/title_activity_entrada_datos_sistemas_ecuaciones" >
         </activity>
+        <activity
+            android:name=".views.single_variable.HelpBiseccion"
+            android:label="@string/title_activity_help_biseccion" >
+        </activity>
+        <activity
+            android:name=".views.single_variable.HelpFalsePosition"
+            android:label="@string/title_activity_help_false_position" >
+        </activity>
+        <activity
+            android:name=".views.single_variable.HelpFixedPoint"
+            android:label="@string/title_activity_help_fixed_point" >
+        </activity>
+        <activity
+            android:name=".views.single_variable.HelpNewton"
+            android:label="@string/title_activity_help_newton" >
+        </activity>
+        <activity
+            android:name=".views.single_variable.HelpSecante"
+            android:label="@string/title_activity_help_secante" >
+        </activity>
     </application>
 
 </manifest>

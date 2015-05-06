@@ -1,5 +1,6 @@
 package com.numericos.proyectofinal.views.single_variable;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -7,6 +8,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.numericos.proyectofinal.R;
+import com.numericos.proyectofinal.Tabla;
 import com.numericos.proyectofinal.logic.Newton;
 import com.numericos.proyectofinal.views.util.CustomKeyboard;
 import android.app.Activity;
@@ -108,6 +110,11 @@ public class NewtonMethod extends Activity{
             }
         });
 
+    }
+
+    public void helpNewton(View v){
+        Intent help = new Intent(getApplicationContext(),HelpNewton.class);
+        startActivity(help);
     }
 
     @Override public void onBackPressed() {

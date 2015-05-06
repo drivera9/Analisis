@@ -40,5 +40,10 @@
     <string name="title_activity_entrada_datos_sistemas_ecuaciones">
         Entrada_datos_sistemas_ecuaciones
     </string>
+    <string name="title_activity_help_biseccion">HelpBiseccion</string>
+    <string name="title_activity_help_false_position">HelpFalsePosition</string>
+    <string name="title_activity_help_fixed_point">HelpFixedPoint</string>
+    <string name="title_activity_help_newton">HelpNewton</string>
+    <string name="title_activity_help_secante">HelpSecante</string>
 
 </resources>
