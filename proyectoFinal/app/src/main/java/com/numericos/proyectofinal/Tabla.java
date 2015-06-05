@@ -4,12 +4,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
-
+import android.widget.GridView;
 import com.numericos.proyectofinal.logic.Bisection;
 
 import java.util.ArrayList;
@@ -17,27 +19,39 @@ import java.util.ArrayList;
 
 public class Tabla extends Activity {
     private ArrayList<String> ArrayIteraciones = new ArrayList<String>();
-    private Button tabla_button;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tabla);
+        setContentView(R.layout.activity_mostrar_tabla);
         final Bundle parametros = this.getIntent().getExtras();
 
+        //Obteniendo la instancia del Intent
+        Intent intent = getIntent();
+        //Extrayendo el extra de tipo cadena
+        String[] contenido = intent.getStringArrayExtra("Resultado");
+        int cantColumnas = intent.getIntExtra("CantColumnas", 2);
+        //String[] contenido;
+        //contenido = new String[]{"Texto", "Texto2", "Texto3","Texto4","Texto5","Texto6","Texto7","Texto8"};
 
-        tabla_button = (Button) findViewById(R.id.button);
-        tabla_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        ArrayAdapter<String> adapter;
+        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, contenido);
 
-                ArrayIteraciones = parametros.getStringArrayList("Array");
-                TextView prueba = (TextView)findViewById(R.id.prueba);
-                prueba.setText(ArrayIteraciones.get(3));
-            }
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
+        int width = metrics.widthPixels;
+        int height = metrics.heightPixels;
 
 
-        });
+        GridView gv = (GridView) findViewById(R.id.gridView);
 
+        gv.setMinimumWidth(gv.getWidth()/cantColumnas);
+
+
+        gv.setNumColumns(cantColumnas);
+        gv.setVisibility(View.VISIBLE);
+        gv.setAdapter(adapter);
 
     }
 

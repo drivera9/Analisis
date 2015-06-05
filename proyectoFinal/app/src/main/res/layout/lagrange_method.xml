@@ -68,13 +68,19 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Help"
+        android:id="@+id/Help"
+        android:onClick="help"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Execute"
         android:id="@+id/gaussian_button"
         android:layout_marginBottom="162dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
-
 
 
 </LinearLayout>

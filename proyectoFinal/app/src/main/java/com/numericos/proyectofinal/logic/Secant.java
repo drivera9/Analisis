@@ -1,8 +1,6 @@
 package com.numericos.proyectofinal.logic;
 
-/**
- * Created by Sara Castrillón on 20/11/2014.
- */
+
 public class Secant {
 
     private double[][] tabla;
@@ -15,6 +13,8 @@ public class Secant {
     private double x1;
     private double tolerance;
     private double iterations;
+    String[] resultadoTabla;
+    String[] temp;
 
 
     public void setdfx(String dfx){
@@ -89,6 +89,30 @@ public class Secant {
             if(Yb == 0){
                 return "Hay una raiz en x = "+b;
             }else{
+                resultadoTabla = new String[]{"n", "Xn", "F(Xn)","ErrorAbs","ErrorRel"};
+                temp = new String[resultadoTabla.length + 5];
+                System.arraycopy(resultadoTabla, 0, temp, 0, resultadoTabla.length);
+
+                temp[temp.length - 5] = String.valueOf(0); //n
+                temp[temp.length - 4] = String.valueOf((a)); //Xn
+                temp[temp.length - 3] = String.valueOf(Ya); //F(Xn)
+                temp[temp.length - 2] = "No Existe"; //ErrorAbs
+                temp[temp.length - 1] = "No Existe"; //ErrorRel
+
+                resultadoTabla = temp;
+
+
+                temp = new String[resultadoTabla.length + 5];
+                System.arraycopy(resultadoTabla, 0, temp, 0, resultadoTabla.length);
+
+                temp[temp.length - 5] = String.valueOf(1); //n
+                temp[temp.length - 4] = String.valueOf((b)); //Xn
+                temp[temp.length - 3] = String.valueOf(Yb); //F(Xn)
+                temp[temp.length - 2] = "No Existe"; //ErrorAbs
+                temp[temp.length - 1] = "No Existe"; //ErrorRel
+
+                resultadoTabla = temp;
+
                 double Xm = b - Yb*((b-a)/(Yb-Ya));
                 double Ym = f(Xm);
                 double aux = b;
@@ -102,6 +126,20 @@ public class Secant {
                 tabla[0][1] = Xm;
                 tabla[0][2] = Ym;
                 double[] Taux = new double[4];
+
+
+                temp = new String[resultadoTabla.length + 5];
+                System.arraycopy(resultadoTabla, 0, temp, 0, resultadoTabla.length);
+
+                temp[temp.length - 5] = String.valueOf(cont+1); //n
+                temp[temp.length - 4] = String.valueOf((Xm)); //Xn
+                temp[temp.length - 3] = String.valueOf(Ym); //F(Xn)
+                temp[temp.length - 2] = String.valueOf(Math.abs(Xm-b)); //ErrorAbs
+                temp[temp.length - 1] = String.valueOf(Math.abs((Xm-b)/Xm)); //ErrorRel
+
+                resultadoTabla = temp;
+
+
                 while(Ym!=0 && E>t && cont<i){
                     Xm = aux2 - Yaux2*((aux2-aux)/(Yaux2-Yaux));
                     Ym = f(Xm);
@@ -116,6 +154,18 @@ public class Secant {
                     Taux[2] = Ym;
                     Taux[3] = E;
                     agregarDatos(Taux);
+
+                    temp = new String[resultadoTabla.length + 5];
+                    System.arraycopy(resultadoTabla, 0, temp, 0, resultadoTabla.length);
+
+                    temp[temp.length - 5] = String.valueOf(cont+1); //n
+                    temp[temp.length - 4] = String.valueOf((Xm)); //Xn
+                    temp[temp.length - 3] = String.valueOf(Ym); //F(Xn)
+                    temp[temp.length - 2] = String.valueOf(E); //ErrorAbs
+                    temp[temp.length - 1] = String.valueOf(Math.abs(E/Xm)); //ErrorRel
+
+                    resultadoTabla = temp;
+
                 }
                 if(Ym == 0){
                     mensaje = "Hay una raiz en x = "+Xm;
@@ -195,4 +245,6 @@ public class Secant {
     public void setIterations(double iteraciones) {
         this.iterations = iteraciones;
     }
+    public String[] getArrayResultado() {
+        return resultadoTabla;}
 }

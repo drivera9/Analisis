@@ -39,6 +39,24 @@ public class CompoundSimpson3_8Method extends Activity {
         //mCustomKeyboard.registerEditText(R.id.tolerance_editText);
         //mCustomKeyboard.registerEditText(R.id.iteraciones_editText);
 
+        final Bundle parametros = this.getIntent().getExtras();
+
+        final String X0 = parametros.getString("X0");
+        final String X1 = parametros.getString("X1");
+        final String Funcion = parametros.getString("Funcion");
+        final String Intervalos = parametros.getString("Intervalos");
+
+        x0_editText = (EditText) findViewById(R.id.x0_editText);
+        x1_editText = (EditText) findViewById(R.id.x1_editText);
+        //tolerance_editText = (EditText) findViewById(R.id.tolerance_editText);
+        intervals_editText = (EditText) findViewById(R.id.tolerance_editText);
+        function_editText = (EditText) findViewById(R.id.function_editText);
+        
+        x0_editText.setText(X0);
+        x1_editText.setText(X1);
+        intervals_editText.setText(Intervalos);
+        function_editText.setText(Funcion);
+
         compoundSimpson3_8 = new CompoundSimpson3_8();
 
         execute_button = (Button) findViewById(R.id.execute_button);
@@ -46,11 +64,7 @@ public class CompoundSimpson3_8Method extends Activity {
             @Override
             public void onClick(View v) {
 
-                x0_editText = (EditText) findViewById(R.id.x0_editText);
-                x1_editText = (EditText) findViewById(R.id.x1_editText);
-                //tolerance_editText = (EditText) findViewById(R.id.tolerance_editText);
-                intervals_editText = (EditText) findViewById(R.id.tolerance_editText);
-                function_editText = (EditText) findViewById(R.id.function_editText);
+
                 result_editText = (EditText)findViewById(R.id.result_editText);
 
                 double x0 = Double.parseDouble(x0_editText.getText().toString());

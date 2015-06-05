@@ -1,8 +1,6 @@
 package com.numericos.proyectofinal.logic;
 
-/**
- * Created by Sara Castrillón on 20/11/2014.
- */
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -27,6 +25,8 @@ public class FixedPoint {
     private double x1;
     private double tolerance;
     private double iterations;
+    String[] resultadoTabla;
+    String[] temp;
 
 
 
@@ -111,17 +111,41 @@ public class FixedPoint {
         tabla[0][1] = Xm;
         tabla[0][2] = Ym;
         double[] Taux = new double[4];
+
+        resultadoTabla = new String[]{"n", "Xn", "F(Xn)","ErrorAbs","ErrorRel"};
+        temp = new String[resultadoTabla.length + 5];
+        System.arraycopy(resultadoTabla, 0, temp, 0, resultadoTabla.length);
+
+        temp[temp.length - 5] = String.valueOf(1); //n
+        temp[temp.length - 4] = String.valueOf((Xm)); //Xn
+        temp[temp.length - 3] = String.valueOf(Ym); //FXn
+        temp[temp.length - 2] = "No Existe"; //ErrorAbs
+        temp[temp.length - 1] = "No Existe"; //ErrorRel
+
+        resultadoTabla = temp;
         while(Ym!=0 && E>t && cont<i){
             aux = Xm;
             Xm = g(Xm);
             Ym = f(Xm);
-            E = Math.abs((Xm - aux)/Xm);
+            E = Math.abs((Xm - aux));
             cont++;
             Taux[0] = cont;
             Taux[1] = Xm;
             Taux[2] = Ym;
             Taux[3] = E;
             agregarDatos(Taux);
+
+            temp = new String[resultadoTabla.length + 5];
+            System.arraycopy(resultadoTabla, 0, temp, 0, resultadoTabla.length);
+
+            temp[temp.length - 5] = String.valueOf(cont); //n
+            temp[temp.length - 4] = String.valueOf((Xm)); //Xn
+            temp[temp.length - 3] = String.valueOf(Ym); //FXn
+            temp[temp.length - 2] = String.valueOf(E); //ErrorAbs
+            temp[temp.length - 1] = String.valueOf(Math.abs(E/Xm));//ErrorRel
+
+            resultadoTabla = temp;
+
         }
         if(Ym == 0){
             mensaje = "Hay una raiz en x = "+Xm;
@@ -200,6 +224,10 @@ public class FixedPoint {
 
     public void setIterations(double iteraciones) {
         this.iterations = iteraciones;
+    }
+
+    public String[] getArrayResultado() {
+        return resultadoTabla;
     }
 
 }

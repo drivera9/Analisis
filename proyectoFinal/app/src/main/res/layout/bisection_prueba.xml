@@ -24,14 +24,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tabla"
-        android:id="@+id/tabla_button"
-        android:layout_alignTop="@+id/Resultado_bisection"
-        android:layout_centerHorizontal="true" />
-
     <EditText
         android:layout_width="100dp"
         android:layout_height="30dp"
@@ -123,9 +115,8 @@
         android:text="Help"
         android:id="@+id/button_help"
         android:layout_alignTop="@+id/Resultado_bisection"
-        android:layout_toRightOf="@+id/tabla_button"
-        android:layout_toEndOf="@+id/tabla_button"
-        android:onClick="helpBiseccion"/>
+        android:onClick="helpBiseccion"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

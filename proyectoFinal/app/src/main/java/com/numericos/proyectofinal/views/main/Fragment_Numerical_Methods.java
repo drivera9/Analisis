@@ -10,6 +10,8 @@ import android.widget.ListView;
 import android.widget.AdapterView;
 import android.widget.Toast;
 
+import com.numericos.proyectofinal.views.interpolation.Entrada_datos_interpolacion;
+import com.numericos.proyectofinal.views.numerical_integration.Entrada_datos_integracion;
 import com.numericos.proyectofinal.views.system_equations.Entrada_datos_sistemas_ecuaciones;
 import com.numericos.proyectofinal.R;
 import com.numericos.proyectofinal.views.interpolation.Fragment_Interpolation;
@@ -64,11 +66,11 @@ public class Fragment_Numerical_Methods extends Fragment {
                         startActivity(ii);
                         break;
                     case 2:
-                        ii = new Intent(getActivity(), Fragment_Interpolation.class);
+                        ii = new Intent(getActivity(), Entrada_datos_interpolacion.class);
                         startActivity(ii);
                         break;
                     case 3:
-                        ii = new Intent(getActivity(), Fragment_Numerical_Integration.class);
+                        ii = new Intent(getActivity(), Entrada_datos_integracion.class);
                         startActivity(ii);
                         break;
                 }

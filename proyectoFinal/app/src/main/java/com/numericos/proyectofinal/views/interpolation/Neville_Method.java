@@ -3,6 +3,7 @@ package com.numericos.proyectofinal.views.interpolation;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -28,21 +29,41 @@ public class Neville_Method extends Activity {
 
         execute_button = (Button) findViewById(R.id.gaussian_button);
 
+        final Bundle parametros = this.getIntent().getExtras();
+
+        final String X = parametros.getString("X");
+        final String Y = parametros.getString("Y");
+        final String Interpolar = parametros.getString("Interpolar");
+        final String Valort = parametros.getString("Valort");
+        final String Puntosf = parametros.getString("Puntosf");
+
+        matrix_editText = (EditText) findViewById(R.id.gaussianMatrix_editText);
+        matrix_editText.setText(X);
+
+        indepTerms_editText = (EditText) findViewById(R.id.indep_terms_editText);
+        indepTerms_editText.setText(Y);
+
+        interpolated_Value_editText = (EditText) findViewById(R.id.interpolated_value_editText);
+        interpolated_Value_editText.setText(Interpolar);
+
+        T_Value_editText = (EditText) findViewById(R.id.T_value_editText);
+        T_Value_editText.setText(Valort);
+
         execute_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                matrix_editText = (EditText) findViewById(R.id.gaussianMatrix_editText);
+
                 String mtx = matrix_editText.getText().toString();
 
-                indepTerms_editText = (EditText) findViewById(R.id.indep_terms_editText);
+
                 String indepTerms = indepTerms_editText.getText().toString();
 
-                interpolated_Value_editText = (EditText) findViewById(R.id.interpolated_value_editText);
+
                 String interpolatedvalue = interpolated_Value_editText.getText().toString();
                 Double i_value = Double.valueOf(interpolatedvalue).doubleValue();
 
-                T_Value_editText = (EditText) findViewById(R.id.T_value_editText);
+
                 String tvalue = T_Value_editText.getText().toString();
                 int tt_value = Integer.parseInt(tvalue);
 
@@ -68,5 +89,10 @@ public class Neville_Method extends Activity {
                 builder.show();
             }
         });
+    }
+
+    public void help(View v){
+        Intent SingleVariable = new Intent(this,HelpNeville.class);
+        startActivity(SingleVariable);
     }
 }

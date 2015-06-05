@@ -15,9 +15,6 @@ import android.app.Activity;
 
 
 
-/**
- * Created by Sara Castrillón on 20/11/2014.
- */
 public class NewtonMethod extends Activity{
     private Newton newton;
     private Button execute_button;
@@ -107,6 +104,11 @@ public class NewtonMethod extends Activity{
                 Toast msg = Toast.makeText(getBaseContext(), displayString,
                         Toast.LENGTH_LONG);
                 msg.show();
+
+                Intent tabla = new Intent(getApplicationContext(),Tabla.class);
+                tabla.putExtra("Resultado",newton.getArrayResultado());
+                tabla.putExtra("CantColumnas", 6);
+                startActivity(tabla);
             }
         });
 

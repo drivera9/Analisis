@@ -4,13 +4,13 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.numericos.proyectofinal.views.single_variable.HelpFalsePosition">
+    tools:context="com.numericos.proyectofinal.views.interpolation.HelpNewtonInterpolacion">
 
     <ImageView
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/imageView3"
+        android:layout_height="450dp"
+        android:id="@+id/imageView17"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/falsepositionhelp" />
+        android:background="@drawable/newton" />
 </RelativeLayout>

@@ -164,6 +164,7 @@
                     android:layout_weight="0.26" />
 
             </LinearLayout>
+
         </LinearLayout>
 
 
@@ -185,4 +186,5 @@
             android:focusableInTouchMode="true"
             android:visibility="gone"/>
     </LinearLayout>
+
 </RelativeLayout>

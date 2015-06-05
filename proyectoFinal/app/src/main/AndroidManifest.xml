@@ -192,6 +192,26 @@
             android:name=".views.single_variable.HelpBusquedas"
             android:label="@string/title_activity_help_busquedas" >
         </activity>
+        <activity
+            android:name=".views.interpolation.Entrada_datos_interpolacion"
+            android:label="@string/title_activity_entrada_datos_interpolacion" >
+        </activity>
+        <activity
+            android:name=".views.numerical_integration.Entrada_datos_integracion"
+            android:label="@string/title_activity_entrada_datos_integracion" >
+        </activity>
+        <activity
+            android:name=".views.interpolation.HelpLagrange"
+            android:label="@string/title_activity_help_lagrange" >
+        </activity>
+        <activity
+            android:name=".views.interpolation.HelpNeville"
+            android:label="@string/title_activity_help_neville" >
+        </activity>
+        <activity
+            android:name=".views.interpolation.HelpNewtonInterpolacion"
+            android:label="@string/title_activity_help_newton" >
+        </activity>
     </application>
 
 </manifest>

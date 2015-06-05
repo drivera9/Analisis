@@ -53,40 +53,59 @@ public class Fragment_Numerical_Integration extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_numerical_integration);
 
+        final Bundle parametros = this.getIntent().getExtras();
+
+        final String X0 = parametros.getString("X0");
+        final String X1 = parametros.getString("X1");
+        final String Funcion = parametros.getString("Funcion");
+        final String Intervalos = parametros.getString("Intervalos");
+
 
         final ListView lista = (ListView) findViewById(R.id.listView5);
         adapter = new ListViewAdapter(getApplicationContext(), titulo, imagenes);
         lista.setAdapter(adapter);
 
+
+
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView adapterView, View view, int position, long id) {
                 Toast.makeText(getApplicationContext(), "Selected " + position, Toast.LENGTH_SHORT).show();
-
+                Bundle parametros2 = new Bundle();
+                parametros2.putString("X0", X0);
+                parametros2.putString("X1", X1);
+                parametros2.putString("Funcion", Funcion);
+                parametros2.putString("Intervalos", Intervalos);
                 Intent ii = null;
                 switch (position) {
                     case 0:
                         ii = new Intent(getApplicationContext(), SimpleTrapezeMethod.class);
+                        ii.putExtras(parametros2);
                         startActivity(ii);
                         break;
                     case 1:
                         ii = new Intent(getApplicationContext(), CompoundTrapezeMethod.class);
+                        ii.putExtras(parametros2);
                         startActivity(ii);
                         break;
                     case 2:
                         ii = new Intent(getApplicationContext(), Simpson1_3Method.class);
+                        ii.putExtras(parametros2);
                         startActivity(ii);
                         break;
                     case 3:
                         ii = new Intent(getApplicationContext(), CompoundSimpson1_3Method.class);
+                        ii.putExtras(parametros2);
                         startActivity(ii);
                         break;
                     case 4:
                         ii = new Intent(getApplicationContext(), Simpson3_8Method.class);
+                        ii.putExtras(parametros2);
                         startActivity(ii);
                         break;
                     case 5:
                         ii = new Intent(getApplicationContext(), CompoundSimpson3_8Method.class);
+                        ii.putExtras(parametros2);
                         startActivity(ii);
                         break;
 

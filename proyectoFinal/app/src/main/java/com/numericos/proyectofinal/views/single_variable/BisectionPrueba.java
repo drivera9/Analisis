@@ -62,6 +62,7 @@ public class BisectionPrueba extends Activity {
             public void onClick(View v) {
 
 
+
                /* Double X0=Double.parseDouble(xibiseccion);
                 Double X1=Double.parseDouble(xsbiseccion);
                 Double TOLERANCE=Double.parseDouble(tolerance);
@@ -104,34 +105,17 @@ public class BisectionPrueba extends Activity {
                 Toast msg = Toast.makeText(getBaseContext(), displayString,
                         Toast.LENGTH_LONG);
                 msg.show();
-            }
-        });
 
-
-        tabla_button = (Button) findViewById(R.id.tabla_button);
-        tabla_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                 ArrayList<Double> ArrayIteracionesAux = new ArrayList<Double>();
-                Bisection bisection;
-                bisection = new Bisection();
-                ArrayIteracionesAux = bisection.getArray();
-                Bundle parametros = new Bundle();
-                ArrayList<String> ArrayStrings= new ArrayList<String>();
-                for(int i=0;i<bisection.getArray().size(); i++)
-                {
-                    String aux= ArrayIteracionesAux.get(i).toString();
-                    ArrayStrings.add(aux);
-                }
-
-                parametros.putStringArrayList("Array", ArrayStrings);
-                Intent SingleVariable = new Intent(getApplicationContext(),Tabla.class);
-                SingleVariable.putExtras(parametros);
-                startActivity(SingleVariable);
-
+                Intent tabla = new Intent(getApplicationContext(),Tabla.class);
+                tabla.putExtra("Resultado",bisection.getArrayResultado());
+                tabla.putExtra("CantColumnas", 7);
+                startActivity(tabla);
 
             }
         });
+
+
+
 
 
 
@@ -142,36 +126,13 @@ public class BisectionPrueba extends Activity {
         startActivity(help);
     }
 
-    public void ejecutar(){
-    Bisection bisection;
-        Bundle parametros = this.getIntent().getExtras();
-        String xibiseccion = parametros.getString("Xi");
-        String xsbiseccion = parametros.getString("Xs");
-        String tolerance = parametros.getString("Tolerance");
-        String iterations = parametros.getString("Iterations");
-        String function = parametros.getString("Fx");
-
-        bisection = new Bisection();
-
-        Double X0=Double.parseDouble(xibiseccion);
-        Double X1=Double.parseDouble(xsbiseccion);
-        Double TOLERANCE=Double.parseDouble(tolerance);
-        Double ITERATIONS=Double.parseDouble(iterations);
-        bisection.setX0(X0);
-        bisection.setX1(X1);
-        bisection.setTolerance(TOLERANCE);
-        bisection.setIterations(ITERATIONS);
-        bisection.setFx(function);
-
-
-        String resultado = bisection.bisectionMethod(X0,X1,TOLERANCE,ITERATIONS);
-        TextView Resultado = (TextView)findViewById(R.id.Resultado_bisection);
-        Resultado.setText(resultado);
 
 
 
-    }
-    @Override
+
+
+
+       @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_bisection_prueba, menu);

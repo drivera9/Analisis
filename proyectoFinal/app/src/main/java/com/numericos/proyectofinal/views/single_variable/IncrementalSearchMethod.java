@@ -4,18 +4,19 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.numericos.proyectofinal.R;
+import com.numericos.proyectofinal.Tabla;
 import com.numericos.proyectofinal.logic.IncrementalSearch;
 import com.numericos.proyectofinal.views.util.CustomKeyboard;
 
-/**
- * Created by JU on 10/21/2014.
- */
+
 
 public class IncrementalSearchMethod extends Activity {
 
@@ -81,16 +82,22 @@ public class IncrementalSearchMethod extends Activity {
                 //function_editText.setTextColor(Color.RED);
                 String displayString = "The result is: " + resultado;
 
-
                 result_editText.setText(displayString, TextView.BufferType.EDITABLE);
 
                 Toast msg = Toast.makeText(getBaseContext(), displayString,
                     Toast.LENGTH_LONG);
                 msg.show();
+
+                Intent tabla = new Intent(getApplicationContext(),Tabla.class);
+                tabla.putExtra("Resultado", incrementalSearch.getArrayResultado());
+                tabla.putExtra("CantColumnas", 4);
+                startActivity(tabla);
+
                 }
         });
 
     }
+
 
     public void helpBusquedas(View v){
         Intent help = new Intent(getApplicationContext(),HelpBusquedas.class);

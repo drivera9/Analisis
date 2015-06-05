@@ -42,6 +42,16 @@ public class Fragment_Interpolation extends Activity {
             setContentView(R.layout.fragment_interpolation);
 
 
+            final Bundle parametros = this.getIntent().getExtras();
+
+            final String X = parametros.getString("X");
+            final String Y = parametros.getString("Y");
+            final String Interpolar = parametros.getString("Interpolar");
+            final String Valort = parametros.getString("Valort");
+            final String Puntosf = parametros.getString("Puntosf");
+
+
+
             final ListView lista = (ListView) findViewById(R.id.listView1);
             adapter = new ListViewAdapter(getApplicationContext(), titulo, imagenes);
             lista.setAdapter(adapter);
@@ -50,19 +60,27 @@ public class Fragment_Interpolation extends Activity {
                 @Override
                 public void onItemClick(AdapterView adapterView, View view, int position, long id) {
                     Toast.makeText(getApplicationContext(), "You selected " + position, Toast.LENGTH_SHORT).show();
-
+                    Bundle parametros2 = new Bundle();
+                    parametros2.putString("X", X);
+                    parametros2.putString("Y", Y);
+                    parametros2.putString("Interpolar", Interpolar);
+                    parametros2.putString("Valort", Valort);
+                    parametros2.putString("Puntosf", Puntosf);
                     Intent ii = null;
                     switch (position) {
                         case 0:
                             ii = new Intent(getApplicationContext(), Lagrange_Method.class);
+                            ii.putExtras(parametros2);
                             startActivity(ii);
                             break;
                         case 1:
                             ii = new Intent(getApplicationContext(), Neville_Method.class);
+                            ii.putExtras(parametros);
                             startActivity(ii);
                             break;
                         case 2:
                             ii = new Intent(getApplicationContext(), Newton_For_Interpolation_Method.class);
+                            ii.putExtras(parametros);
                             startActivity(ii);
                             break;
                           }

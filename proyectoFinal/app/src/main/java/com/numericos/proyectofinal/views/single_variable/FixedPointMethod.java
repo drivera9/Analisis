@@ -13,10 +13,6 @@ import com.numericos.proyectofinal.Tabla;
 import com.numericos.proyectofinal.logic.FixedPoint;
 import com.numericos.proyectofinal.views.util.CustomKeyboard;
 
-/**
- * Created by JU on 10/21/2014.
- */
-
 public class FixedPointMethod extends Activity {
 
     private FixedPoint fixedPoint;
@@ -109,6 +105,11 @@ public class FixedPointMethod extends Activity {
                 Toast msg = Toast.makeText(getBaseContext(), displayString,
                         Toast.LENGTH_LONG);
                 msg.show();
+
+                Intent tabla = new Intent(getApplicationContext(),Tabla.class);
+                tabla.putExtra("Resultado",fixedPoint.getArrayResultado());
+                tabla.putExtra("CantColumnas", 5);
+                startActivity(tabla);
             }
         });
 

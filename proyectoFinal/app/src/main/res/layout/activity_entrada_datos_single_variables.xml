@@ -20,8 +20,7 @@
         android:id="@+id/datoXi_single_variables"
         android:layout_below="@+id/Xi"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:inputType="numberDecimal"/>
+        android:layout_alignParentStart="true"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -35,7 +34,6 @@
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:id="@+id/datoXs_single_variables"
-        android:inputType="numberDecimal"
         android:layout_below="@+id/Xs"
         android:layout_toRightOf="@+id/datoXi_single_variables"
         android:layout_toEndOf="@+id/datoXi_single_variables"
@@ -79,7 +77,6 @@
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:id="@+id/datoTolerance_single_variables"
-        android:inputType="numberDecimal"
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@+id/datoXs_single_variables"
         android:layout_toStartOf="@+id/datoXs_single_variables" />
@@ -97,7 +94,6 @@
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:id="@+id/datoIterations_single_variables"
-        android:inputType="numberDecimal"
         android:layout_below="@+id/Iterations"
         android:layout_alignLeft="@+id/Iterations"
         android:layout_alignStart="@+id/Iterations" />
@@ -115,7 +111,6 @@
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:id="@+id/datoDelta_single_variables"
-        android:inputType="numberDecimal"
         android:layout_below="@+id/Delta"
         android:layout_alignLeft="@+id/Delta"
         android:layout_alignStart="@+id/Delta" />

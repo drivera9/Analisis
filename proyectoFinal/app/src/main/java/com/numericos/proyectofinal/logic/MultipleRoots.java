@@ -1,8 +1,6 @@
 package com.numericos.proyectofinal.logic;
 
-/**
- * Created by Sara Castrillón on 20/11/2014.
- */
+
 public class MultipleRoots {
 
     private double[][] tabla;
@@ -15,7 +13,8 @@ public class MultipleRoots {
     private double x1;
     private double tolerance;
     private double iterations;
-
+    String[] resultadoTabla;
+    String[] temp;
 
     public void setdfx(String dfx){
         this.dfx = new Funcion(dfx);
@@ -96,21 +95,43 @@ public class MultipleRoots {
         tabla[0][3] = z;
         tabla[0][4] = w;
         double[] Taux = new double[6];
+
+        resultadoTabla = new String[]{"n", "Xn", "F(Xn)","F´(Xn)","F´´(Xn)","ErrorAbs","ErrorRel"};
+        temp = new String[resultadoTabla.length + 7];
+        System.arraycopy(resultadoTabla, 0, temp, 0, resultadoTabla.length);
+
+
+        temp[temp.length - 7] = String.valueOf(0); //n
+        temp[temp.length - 6] = String.valueOf((Xm)); //Xn
+        temp[temp.length - 5] = String.valueOf(y); //F(Xn)
+        temp[temp.length - 4] = String.valueOf(z); //F´(xn)
+        temp[temp.length - 3] = String.valueOf((w)); //F´´(Xn)
+        temp[temp.length - 2] = "No Existe"; //ErrorAbs
+        temp[temp.length - 1] = "No Existe"; //ErrorRel
+
+        resultadoTabla = temp;
         while (y!=0 && E>t && (z!=0 || w!=0) && cont<i) {
             double X1 = Xm -((y*z)/((z*z)-(y*w)));
             y = f(X1);
             z = df(X1);
             w = ddf(X1);
-            E = Math.abs((X1 - Xm)/X1);
+            E = Math.abs((X1 - Xm));
             Xm = X1;
             cont++;
-            Taux[0] = cont;
-            Taux[1] = Xm;
-            Taux[2] = y;
-            Taux[3] = z;
-            Taux[4] = w;
-            Taux[5] = E;
-            agregarDatos(Taux);
+
+            temp = new String[resultadoTabla.length + 7];
+            System.arraycopy(resultadoTabla, 0, temp, 0, resultadoTabla.length);
+
+
+            temp[temp.length - 7] = String.valueOf(cont); //n
+            temp[temp.length - 6] = String.valueOf((Xm)); //Xn
+            temp[temp.length - 5] = String.valueOf(y); //F(Xn)
+            temp[temp.length - 4] = String.valueOf(z); //F´(xn)
+            temp[temp.length - 3] = String.valueOf((w)); //F´´(Xn)
+            temp[temp.length - 2] = String.valueOf((E)); //ErrorAbs
+            temp[temp.length - 1] = String.valueOf(Math.abs(E/X1)); //ErrorRel
+
+            resultadoTabla = temp;
         }
         if (y == 0) {
             mensaje = "Hay una raiz en x = "+Xm;
@@ -195,4 +216,7 @@ public class MultipleRoots {
     public void setIterations(double iteraciones) {
         this.iterations = iteraciones;
     }
+
+    public String[] getArrayResultado() {
+        return resultadoTabla;}
 }

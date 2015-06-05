@@ -1,8 +1,6 @@
 package com.numericos.proyectofinal.logic;
 
-/**
- * Created by Sara Castrillón on 19/11/2014.
- */
+
 public class FalsePosition {
 
     private double[][] tabla;
@@ -16,6 +14,8 @@ public class FalsePosition {
     private double x1;
     private double tolerance;
     private double iterations;
+    String[] resultadoTabla;
+    String[] temp;
 
     public void setdfx(String dfx){
         this.dfx = new Funcion(dfx);
@@ -83,6 +83,8 @@ public class FalsePosition {
         double Ya = f(a);
         double Yb = f(b);
         tabla = new double[1][6];
+
+
         if(Ya*Yb > 0){
             mensaje = "El intervalo ["+a+","+b+"] no es valido";
             return mensaje;
@@ -95,11 +97,27 @@ public class FalsePosition {
                     mensaje = "Hay una raiz en x = "+b;
                     return mensaje;
                 }else{
+
+
                     double aux;
                     double Xm = a - Ya*((b-a)/(Yb-Ya));
                     double E = t+1;
                     int cont=1;
                     double Ym = f(Xm);
+
+                    resultadoTabla = new String[]{"n", "Xi", "Xs", "Xm","F(Xm)","ErrorAbs","ErrorRel"};
+                    temp = new String[resultadoTabla.length + 7];
+                    System.arraycopy(resultadoTabla, 0, temp, 0, resultadoTabla.length);
+
+                    temp[temp.length - 7] = String.valueOf(1); //n
+                    temp[temp.length - 6] = String.valueOf(a); //Xi
+                    temp[temp.length - 5] = String.valueOf(b); //Xs
+                    temp[temp.length - 4] = String.valueOf((Xm)); //Xm
+                    temp[temp.length - 3] = String.valueOf(Ym); //FXM
+                    temp[temp.length - 2] = "No Existe"; //ErrorAbs
+                    temp[temp.length - 1] = "No Existe"; //ErrorRel
+
+                    resultadoTabla = temp;
                     tabla[0][0] = cont;
                     tabla[0][1] = a;
                     tabla[0][2] = b;
@@ -119,6 +137,19 @@ public class FalsePosition {
                         Ym = f(Xm);
                         E = Math.abs(Xm - aux);
                         cont++;
+
+                        temp = new String[resultadoTabla.length + 7];
+                        System.arraycopy(resultadoTabla, 0, temp, 0, resultadoTabla.length);
+
+                        temp[temp.length - 7] = String.valueOf(cont); //n
+                        temp[temp.length - 6] = String.valueOf(a); //Xi
+                        temp[temp.length - 5] = String.valueOf(b); //Xs
+                        temp[temp.length - 4] = String.valueOf((Xm)); //Xm
+                        temp[temp.length - 3] = String.valueOf(Ym); //FXM
+                        temp[temp.length - 2] = String.valueOf(E); //ErrorAbs
+                        temp[temp.length - 1] = String.valueOf(Math.abs(E/Xm)) ;//ErrorRel
+
+                        resultadoTabla = temp;
                         Taux[0] = cont;
                         Taux[1] = a;
                         Taux[2] = b;
@@ -206,5 +237,9 @@ public class FalsePosition {
 
     public void setIterations(double iteraciones) {
         this.iterations = iteraciones;
+    }
+
+    public String[] getArrayResultado() {
+        return resultadoTabla;
     }
 }

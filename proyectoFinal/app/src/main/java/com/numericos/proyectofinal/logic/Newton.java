@@ -2,9 +2,7 @@ package com.numericos.proyectofinal.logic;
 
 import org.nfunk.jep.function.Str;
 
-/**
- * Created by Sara Castrillón on 20/11/2014.
- */
+
 public class Newton {
     private double[][] tabla;
     private String mensaje;
@@ -16,6 +14,8 @@ public class Newton {
     private double x1;
     private double tolerance;
     private double iterations;
+    String[] resultadoTabla;
+    String[] temp;
 
     public void setdfx(String dfx){
         this.dfx = new Funcion(dfx);
@@ -86,6 +86,18 @@ public class Newton {
         int cont=1;
         double Ym = f(Xm);
         double Y1m = df(Xm);
+        resultadoTabla = new String[]{"n", "Xn", "F(Xn)","F´(Xn)","ErrorAbs","ErrorRel"};
+        temp = new String[resultadoTabla.length + 6];
+        System.arraycopy(resultadoTabla, 0, temp, 0, resultadoTabla.length);
+
+        temp[temp.length - 6] = String.valueOf(0); //n
+        temp[temp.length - 5] = String.valueOf((Xm)); //Xn
+        temp[temp.length - 4] = String.valueOf(Ym); //F(Xn)
+        temp[temp.length - 3] = String.valueOf((Y1m)); //F´(Xn)
+        temp[temp.length - 2] = "No Existe"; //ErrorAbs
+        temp[temp.length - 1] = "No Existe"; //ErrorRel
+
+        resultadoTabla = temp;
         tabla = new double[1][4];
         tabla[0][0] = cont;
         tabla[0][1] = Xm;
@@ -96,13 +108,24 @@ public class Newton {
             Xm = Xm - (Ym/Y1m);
             Ym = f(Xm);
             Y1m = df(Xm);
-            E = Math.abs((Xm - aux)/Xm);
+            E = Math.abs((Xm - aux));
             cont++;
             Taux[0] = cont;
             Taux[1] = Xm;
             Taux[2] = Ym;
             Taux[3] = E;
             agregarDatos(Taux);
+            temp = new String[resultadoTabla.length + 6];
+            System.arraycopy(resultadoTabla, 0, temp, 0, resultadoTabla.length);
+
+            temp[temp.length - 6] = String.valueOf(cont-1); //n
+            temp[temp.length - 5] = String.valueOf((Xm)); //Xn
+            temp[temp.length - 4] = String.valueOf(Ym); //F(Xn)
+            temp[temp.length - 3] = String.valueOf((Y1m)); //F´(Xn)
+            temp[temp.length - 2] = String.valueOf(E); //ErrorAbs
+            temp[temp.length - 1] = String.valueOf(Math.abs(E/Xm));  //ErrorRel
+
+            resultadoTabla = temp;
         }
         if(Ym == 0){
             mensaje = "Hay una raiz en x = "+Xm;
@@ -186,4 +209,7 @@ public class Newton {
     public void setIterations(double iteraciones) {
         this.iterations = iteraciones;
     }
+
+    public String[] getArrayResultado() {
+        return resultadoTabla;}
 }

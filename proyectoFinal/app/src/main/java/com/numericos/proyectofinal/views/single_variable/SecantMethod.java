@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.numericos.proyectofinal.R;
+import com.numericos.proyectofinal.Tabla;
 import com.numericos.proyectofinal.logic.Secant;
 import com.numericos.proyectofinal.views.util.CustomKeyboard;
 
@@ -105,6 +106,11 @@ public class SecantMethod extends Activity {
                 Toast msg = Toast.makeText(getBaseContext(), displayString,
                         Toast.LENGTH_LONG);
                 msg.show();
+
+                Intent tabla = new Intent(getApplicationContext(),Tabla.class);
+                tabla.putExtra("Resultado",secant.getArrayResultado());
+                tabla.putExtra("CantColumnas", 5);
+                startActivity(tabla);
             }
         });
 

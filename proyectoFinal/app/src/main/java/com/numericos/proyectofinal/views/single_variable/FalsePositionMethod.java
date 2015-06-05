@@ -117,6 +117,11 @@ public class FalsePositionMethod extends Activity {
                 Toast msg = Toast.makeText(getBaseContext(), displayString,
                         Toast.LENGTH_LONG);
                 msg.show();
+
+                Intent tabla = new Intent(getApplicationContext(),Tabla.class);
+                tabla.putExtra("Resultado",falsePosition.getArrayResultado());
+                tabla.putExtra("CantColumnas", 7);
+                startActivity(tabla);
             }
         });
 

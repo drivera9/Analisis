@@ -9,12 +9,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.numericos.proyectofinal.R;
+import com.numericos.proyectofinal.Tabla;
 import com.numericos.proyectofinal.logic.MultipleRoots;
 import com.numericos.proyectofinal.views.util.CustomKeyboard;
 
-/**
- * Created by Sara Castrillón on 20/11/2014.
- */
+
 public class MultipleRootsMethod extends Activity{
     private MultipleRoots multipleRoots;
     private Button execute_button;
@@ -113,6 +112,11 @@ public class MultipleRootsMethod extends Activity{
                 Toast msg = Toast.makeText(getBaseContext(), displayString,
                         Toast.LENGTH_LONG);
                 msg.show();
+
+                Intent tabla = new Intent(getApplicationContext(),Tabla.class);
+                tabla.putExtra("Resultado",multipleRoots.getArrayResultado());
+                tabla.putExtra("CantColumnas", 7);
+                startActivity(tabla);
             }
         });
 

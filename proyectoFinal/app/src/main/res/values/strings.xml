@@ -53,5 +53,9 @@
     <string name="title_activity_help_jacobi">HelpJacobi</string>
     <string name="title_activity_help_seidel">HelpSeidel</string>
     <string name="title_activity_help_busquedas">HelpBusquedas</string>
+    <string name="title_activity_entrada_datos_interpolacion">Entrada_datos_interpolacion</string>
+    <string name="title_activity_entrada_datos_integracion">Entrada_datos_integracion</string>
+    <string name="title_activity_help_lagrange">HelpLagrange</string>
+    <string name="title_activity_help_neville">HelpNeville</string>
 
 </resources>

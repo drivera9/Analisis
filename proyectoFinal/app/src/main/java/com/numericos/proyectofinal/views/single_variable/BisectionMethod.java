@@ -1,6 +1,7 @@
 package com.numericos.proyectofinal.views.single_variable;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.numericos.proyectofinal.R;
+import com.numericos.proyectofinal.Tabla;
 import com.numericos.proyectofinal.logic.Bisection;
 import com.numericos.proyectofinal.views.util.CustomKeyboard;
 
@@ -130,6 +132,11 @@ public class BisectionMethod extends Activity {
                 Toast msg = Toast.makeText(getBaseContext(), displayString,
                         Toast.LENGTH_LONG);
                 msg.show();
+
+                Intent tabla = new Intent(getApplicationContext(),Tabla.class);
+                tabla.putExtra("Resultado",bisection.getArrayResultado());
+                tabla.putExtra("CantColumnas", 7);
+                startActivity(tabla);
             }
         });
 
