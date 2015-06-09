@@ -10,6 +10,7 @@ import android.widget.ListView;
 import android.widget.AdapterView;
 import android.widget.Toast;
 
+import com.numericos.proyectofinal.views.graficador.temporal;
 import com.numericos.proyectofinal.views.interpolation.Entrada_datos_interpolacion;
 import com.numericos.proyectofinal.views.numerical_integration.Entrada_datos_integracion;
 import com.numericos.proyectofinal.views.system_equations.Entrada_datos_sistemas_ecuaciones;
@@ -32,7 +33,8 @@ public class Fragment_Numerical_Methods extends Fragment {
             "Single variables",
             "Systems of Equations",
             "Interpolation",
-            "Numerical integration"
+            "Numerical integration",
+            "graficador"
     };
 
 
@@ -41,6 +43,7 @@ public class Fragment_Numerical_Methods extends Fragment {
             R.drawable.multiple_variables,
             R.drawable.interpolation,
             R.drawable.numerical_integration,
+            R.drawable.numerical_integration
     };
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -71,6 +74,10 @@ public class Fragment_Numerical_Methods extends Fragment {
                         break;
                     case 3:
                         ii = new Intent(getActivity(), Entrada_datos_integracion.class);
+                        startActivity(ii);
+                        break;
+                    case 4:
+                        ii = new Intent(getActivity(), temporal.class);
                         startActivity(ii);
                         break;
                 }

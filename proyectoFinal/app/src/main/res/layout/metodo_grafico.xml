@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/graficoscreen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/abc_ab_bottom_solid_dark_holo">
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="none"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/atras_MG"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <view
+        android:id="@+id/graficadorfuncion"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        class="com.numericos.proyectofinal.views.graficador.Graficador"
+        android:layout_below="@+id/imageView1"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:id="@+id/draw"
+        android:background="@android:drawable/btn_default"
+        android:onClick="draw"
+        android:layout_above="@+id/atras_MG"
+        android:layout_centerHorizontal="true"
+        android:text="DRAW" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Izq"
+        android:id="@+id/Izquierda"
+        android:background="@android:drawable/btn_default"
+        android:onClick="izquierda"
+        android:layout_alignTop="@+id/Derecha"
+        android:layout_alignLeft="@+id/formula_ID"
+        android:layout_alignStart="@+id/formula_ID" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Der"
+        android:id="@+id/Derecha"
+        android:background="@android:drawable/btn_default"
+        android:onClick="derecha"
+        android:layout_below="@+id/graficadorfuncion"
+        android:layout_alignRight="@+id/formula_ID"
+        android:layout_alignEnd="@+id/formula_ID" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+Y"
+        android:id="@+id/masY"
+        android:background="@android:drawable/btn_default"
+        android:onClick="masY"
+        android:layout_alignBottom="@+id/formula_ID"
+        android:layout_toLeftOf="@+id/formula_ID"
+        android:layout_toStartOf="@+id/formula_ID" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-Y"
+        android:id="@+id/menosY"
+        android:background="@android:drawable/btn_default"
+        android:onClick="menosY"
+        android:layout_below="@+id/formula_ID"
+        android:layout_alignLeft="@+id/masY"
+        android:layout_alignStart="@+id/masY" />
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="Zoom+"
+        android:id="@+id/Zoommas"
+        android:background="@android:drawable/btn_default"
+        android:onClick="zoomMas"
+        android:layout_alignBottom="@+id/formula_ID"
+        android:layout_toRightOf="@+id/formula_ID"
+        android:layout_toEndOf="@+id/formula_ID" />
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="Zoom-"
+        android:id="@+id/Zoommenos"
+        android:background="@android:drawable/btn_default"
+        android:onClick="zoomMenos"
+        android:layout_alignTop="@+id/menosY"
+        android:layout_alignRight="@+id/Zoommas"
+        android:layout_alignEnd="@+id/Zoommas" />
+
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:id="@+id/formula_ID"
+        android:layout_below="@+id/Izquierda"
+        android:layout_centerHorizontal="true"
+        android:background="#ffffffff" />
+
+</RelativeLayout>

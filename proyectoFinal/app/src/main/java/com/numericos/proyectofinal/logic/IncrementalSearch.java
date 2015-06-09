@@ -22,13 +22,12 @@ public class IncrementalSearch {
     public String execute(){
         double y0, y1, x1, FxAnt;
         y0 = f(x0);
-        int cont=0;
 
-        resultadoTabla = new String[]{"n", "X", "F(X)", "F(X)*F(X ant.)"};
+        resultadoTabla = new String[]{"Delta", "X", "F(X)", "F(X)*F(X ant.)"};
         temp = new String[resultadoTabla.length + 4];
         System.arraycopy(resultadoTabla, 0, temp, 0, resultadoTabla.length);
 
-        temp[temp.length - 4] = String.valueOf(cont); //n
+        temp[temp.length - 4] = String.valueOf(delta); //Resultado Delta
         temp[temp.length - 3] = String.valueOf(x0); //Resultado X
         temp[temp.length - 2] = String.valueOf(y0); //Resultado F(X)
         temp[temp.length - 1] = ""; //Resultado F(X)*F(X ant.)
@@ -50,7 +49,7 @@ public class IncrementalSearch {
                 temp = new String[resultadoTabla.length + 4];
                 System.arraycopy(resultadoTabla, 0, temp, 0, resultadoTabla.length);
 
-                temp[temp.length - 4] = String.valueOf(cont+1); //n
+                temp[temp.length - 4] = String.valueOf(delta); //Resultado Delta
                 temp[temp.length - 3] = String.valueOf(x1); //Resultado X
                 temp[temp.length - 2] = String.valueOf(y1); //Resultado F(X)
                 temp[temp.length - 1] = String.valueOf(FxAnt); //Resultado F(X)*F(X ant.)
@@ -68,7 +67,7 @@ public class IncrementalSearch {
                     temp = new String[resultadoTabla.length + 4];
                     System.arraycopy(resultadoTabla, 0, temp, 0, resultadoTabla.length);
 
-                    temp[temp.length - 4] = String.valueOf(contador+1); //n
+                    temp[temp.length - 4] = String.valueOf(delta); //Resultado Delta
                     temp[temp.length - 3] = String.valueOf(x1); //Resultado X
                     temp[temp.length - 2] = String.valueOf(y1); //Resultado F(X)
                     temp[temp.length - 1] = String.valueOf(FxAnt); //Resultado F(X)*F(X ant.)

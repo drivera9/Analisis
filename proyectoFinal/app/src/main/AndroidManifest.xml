@@ -29,6 +29,10 @@
             android:parentActivityName=".views.single_variable.Entrada_datos_single_variables" >
         </activity>
         <activity
+            android:name=".views.graficador.temporal"
+            android:parentActivityName=".views.single_variable.Entrada_datos_single_variables" >
+        </activity>
+        <activity
             android:name=".views.single_variable.FalsePositionMethod"
             android:parentActivityName=".views.single_variable.Fragment_Single_Variable" >
         </activity>
